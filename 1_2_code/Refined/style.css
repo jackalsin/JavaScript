@@ -5,4 +5,31 @@ body {
 
 a {
     color:gray;
+    text-decoration:none;
 }
+
+a:hover {
+    color:black;
+    background-color: white
+    
+}
+
+.green_link:hover{
+    color:green;
+    background: black
+}
+
+h1{
+    font-family: sans-serif;
+}
+
+/* Creating a class*/
+.indent {
+    margin-left: 5%
+}
+
+/* Font choose: 
+    1. Sans-serif
+    2. Serif
+    3. Monospaced
+*/
