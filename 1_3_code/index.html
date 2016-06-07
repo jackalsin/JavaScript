@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1_3 code</title>
+    <script src=" http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <h1 id="title1" onclick="console.log('hello');">Hello World</h1>
+    <!--The function explains:
+        $ is a function, which takes in a css selector
+        title means this page's title
+        html, another function, it means let's change the html--> 
+    <h1 id="title" onclick="$('#title').html('goodBye');">Title 2</h1>
+
+    <h1 id="sayHelloTag" onclick="sayHello();"">Call Function Say Hello</h1>
+</body>
+
+
+
+<script type="text/javascript">
+    $('#title').html('Waiting for clicking')
+
+    function sayHello() {
+        alert('hello')
+    };
+    
+</script>
+
+</html>
