@@ -100,10 +100,17 @@
 		$(".crop-img").click(function(){
 			$("#bigImage").attr('src',
 				$(this).attr('src'));
-		});
+        });
 
+
+        var isPaused=false;
 		var counter = 1;
-		$("image"+counter).click(); // do virtual click
+
+        $("#bigImage").click(function () {
+            isPaused = !isPaused;
+        })
+
+        $("#image"+counter).click(); // do virtual click
 
 
 		$("#backward").click(function () {
@@ -121,6 +128,14 @@
             }
 			$("#image"+counter).click();
 		});
+
+        /* Pass in a function and */
+        setInterval(function () {
+            if (!isPaused)
+                $("#forward").click()
+        }, 1000);
+
+
 	</script>
 
 	</body>
