@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Variable Counter</title>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js">
+
+    </script>
+
+</head>
+<body>
+    <h1 id="number" onclick="countingNumber();"></h1>
+
+    <script type="text/javascript">
+       /* <!--This is the script part, it will execute any way
+            So no need to define a default value -->
+        */
+        var counter = 0;
+        $("#number").html(counter);
+        function countingNumber() {
+            counter = counter + 1;
+            $("#number").html(counter);
+        }
+    </script>
+</body>
+</html>
