@@ -12,18 +12,25 @@
         html, another function, it means let's change the html--> 
     <h1 id="title" onclick="$('#title').html('goodBye');">Title 2</h1>
 
-    <h1 id="sayHelloTag" onclick="sayHello();"">Call Function Say Hello</h1>
+    <h1 id="sayHelloTag" onclick="sayHello();">Call Function Say Hello</h1>
+
+    <h1 id="reverseable" onclick="reverseSayHello();">Reversible Call Function</h1>
 </body>
 
-
-
 <script type="text/javascript">
-    $('#title').html('Waiting for clicking')
+    $("#title").html('Waiting for clicking')
 
     function sayHello() {
         alert('hello')
     };
-    
+
+    function reverseSayHello() {
+        $("#reverseable").html("Goodbye");
+        $("#reverseable").click(function () {
+           $("#reverseable").html("Hello");
+            $("#reverseable").off("click");
+        });
+    }
 </script>
 
 </html>
