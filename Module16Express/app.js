@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -24,7 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* This is two kinds of request */
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -33,6 +31,8 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+
+/* Use this one for development */
 // error handlers
 
 // development error handler
@@ -47,6 +47,8 @@ if (app.get('env') === 'development') {
   });
 }
 
+
+/* Use this one for real use. */
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
