@@ -13,6 +13,9 @@ var about = require('./routes/about');
 
 var app = express();
 
+/* Creating a local variable */
+app.locals.points = "8,713";
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

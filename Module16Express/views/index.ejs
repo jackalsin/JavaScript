@@ -11,10 +11,14 @@
     <p>When you need a javascript, user "<% %>"</p>
     <p>When need a variable to assign </p>
 
-    <ul>
-      <% for(var i = 0; i < 5; i++) {%>
-        <li>Tuna</li>
-      <% }%>
-    </ul>
+    <p><%= locals.points %></p>
+  <h2><%= videoData.categoryName %></h2>
+  <ul>
+    <% videoData.categories.forEach(function (item) { %>
+
+      <li><%= item.categoryName%></li>
+
+    <% }); %>
+  </ul>
   </body>
 </html>
