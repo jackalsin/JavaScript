@@ -11,6 +11,11 @@ var person = {
 
 console.log(person);
 
+
+var str = '{ "name": "John Doe", "age": 42 }';
+var obj = JSON.parse(str);
+console.log("object id = " + obj.name);
+
 function addNumbers(a, b) {
     return a + b;
 }
