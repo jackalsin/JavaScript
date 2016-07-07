@@ -2,8 +2,6 @@
  * Created by jacka on 7/7/2016.
  */
 var http = require('http');
-var fs = require('fs');
-var path = require('path');
 
 var hostname = 'localhost';
 var port = 3000;
