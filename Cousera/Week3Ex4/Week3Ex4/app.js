@@ -4,6 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var config = require('./config.js');
+
+mongoose.connect(config.mongoUrl);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, "Connection Error"));
+db.once('open', function () {
+    // we're connected
+    console.log('Connection correctly to server');
+});
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -20,11 +34,25 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+/**
+ * passport config
+ */
+var User = require('./model/user');
+app.use(passport.initialize());
+passport.use(new LocalStrategy(User.anthenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/dishes', dishRouter);
+app.use('promotions', promoRouter);
+app.use('leadership', leaderRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
