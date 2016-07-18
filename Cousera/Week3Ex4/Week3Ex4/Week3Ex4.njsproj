@@ -3,14 +3,14 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>Authentication</Name>
-    <RootNamespace>Authentication</RootNamespace>
+    <Name>Week3Ex4</Name>
+    <RootNamespace>Week3Ex4</RootNamespace>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>de6a1074-9ac0-441a-991b-d5132faa4146</ProjectGuid>
+    <ProjectGuid>ba6c0cbd-5c3f-4e05-becd-4d5098248a62</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>bin\www</StartupFile>
     <SearchPath>
@@ -34,7 +34,6 @@
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
-    <Compile Include="server-3.js" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\style.styl" />
     <Content Include="README.md" />
