@@ -38,7 +38,7 @@ app.use(cookieParser());
 /**
  * passport config
  */
-var User = require('./model/user');
+var User = require('./models/user');
 app.use(passport.initialize());
 passport.use(new LocalStrategy(User.anthenticate()));
 passport.serializeUser(User.serializeUser());
@@ -68,7 +68,8 @@ app.use(function (req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        // modify this to json
+        res.json({
             message: err.message,
             error: err
         });
@@ -79,7 +80,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.json({
         message: err.message,
         error: {}
     });
