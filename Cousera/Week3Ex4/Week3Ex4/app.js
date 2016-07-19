@@ -21,6 +21,10 @@ db.once('open', function () {
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var dishRouter = require('./routes/dishes');
+var promoRouter = require('./routes/promotions');
+var leaderRouter = require('./routes/leadership');
+
 
 var app = express();
 
@@ -40,7 +44,7 @@ app.use(cookieParser());
  */
 var User = require('./models/user');
 app.use(passport.initialize());
-passport.use(new LocalStrategy(User.anthenticate()));
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 

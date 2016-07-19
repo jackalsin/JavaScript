@@ -32,6 +32,9 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="config.js" />
+    <Compile Include="models\dishes.js" />
+    <Compile Include="models\leadership.js" />
+    <Compile Include="models\promotions.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
