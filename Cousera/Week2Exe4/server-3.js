@@ -12,7 +12,7 @@ var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'console error:'));
 
-db.once('open', function() {
+db.open('open', function() {
   console.log("Connected correctly to server");
 
   Dishes.create({

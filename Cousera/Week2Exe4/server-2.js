@@ -12,7 +12,7 @@ var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'console error:'));
 
-db.open('open', function () {
+db.once('open', function () {
   // we are connected
   console.log("Connect correctly to server");
 
@@ -44,5 +44,6 @@ db.open('open', function () {
         });
       })
     }, 3000);
+
   });
 });
