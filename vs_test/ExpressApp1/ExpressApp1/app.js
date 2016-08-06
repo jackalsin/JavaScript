@@ -33,6 +33,7 @@ app.use(function (req, res, next) {
     next(err);
 });
 
+app.use
 // error handlers
 
 // development error handler
@@ -47,6 +48,7 @@ if (app.get('env') === 'development') {
     });
 }
 
+
 // production error handler
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {
@@ -56,6 +58,8 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
+
+
 
 
 module.exports = app;

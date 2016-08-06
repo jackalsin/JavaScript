@@ -25,7 +25,4 @@ db.once('open', function () {
     console.log("Created dish id = " + id);
   });
 
-
-
-  db.close();  
 });
