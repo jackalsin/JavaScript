@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// config
+var configSession = require('./config/configSession');
+var configDB = require('./config/database');
+
 // ------- added package ----------
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -28,6 +32,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+require('./config/passport')(passport);
+// added for passport
+app.use(session({secret: configSession.secretKey}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+mongoose.connect(configDB.mongoUrl);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log("Connected correctly to server");
+});
+
+require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 
 app.use('/', routes);
